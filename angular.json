@@ -3,5 +3,46 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "storybook-lib": {
+      "projectType": "library",
+      "root": "projects/storybook-lib",
+      "sourceRoot": "projects/storybook-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/storybook-lib/tsconfig.lib.json",
+            "project": "projects/storybook-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/storybook-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/storybook-lib/src/test.ts",
+            "tsConfig": "projects/storybook-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/storybook-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/storybook-lib/tsconfig.lib.json",
+              "projects/storybook-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "storybook-lib"
 }

@@ -15,6 +15,14 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
+    "paths": {
+      "storybook-lib": [
+        "dist/storybook-lib/storybook-lib",
+        "dist/storybook-lib",
+        "dist/storybook-lib/storybook-lib",
+        "dist/storybook-lib"
+      ]
+    },
     "module": "es2020",
     "lib": [
       "es2018",
